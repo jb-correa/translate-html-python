@@ -5,7 +5,8 @@ if __name__ == '__main__':
   import os
   import shutil
   
-  current_dir = os.path.dirname("C:/Users/jbaut/Downloads/")
+  #Important to put the folder to scrap
+  current_dir = os.path.dirname("")
   
   for filename in os.listdir(current_dir):
     if filename.endswith(".html"):
@@ -15,6 +16,8 @@ if __name__ == '__main__':
       translator=Translator()
       for tag in tags:
         if tag.text:
+          #In "dest" parameter goes the language abbreviation. "Hi" stands for hindi
+          #"en" is english, "es" is spanish, "fr" is french, etc
           translation=translator.translate(tag.string,dest="hi").text
           tag.string=translation
           with open(filename, "wb") as f:
